@@ -156,7 +156,8 @@ footer strong{color:rgba(245,240,232,.8);font-weight:500;}
   <div class="nav-logo">Annecy 2025</div>
   <ul class="nav-links">
     <li><a href="#karta">Karta</a></li>
-    <li><a href="#stopp">Stopp</a></li>
+    <li><a href="#stopp">Rutt 1</a></li>
+    <li><a href="#rutt2">Rutt 2</a></li>
     <li><a href="#annecy">Annecy</a></li>
     <li><a href="#boenden">Boenden</a></li>
     <li><a href="#elbil">Elbil</a></li>
@@ -187,8 +188,35 @@ footer strong{color:rgba(245,240,232,.8);font-weight:500;}
 <div class="map-section" id="karta">
   <div class="map-inner">
     <div class="section-label" style="color:rgba(201,168,76,.8);">Interaktiv karta</div>
-    <h2 class="section-title" style="color:var(--cream);">Hela rutten på kartan</h2>
-    <p class="section-intro">Klicka på markörerna för info om varje stopp. Grön linje = utresa · Orange streckad = hemresa.</p>
+    <h2 class="section-title" style="color:var(--cream);">Båda rutterna på kartan</h2>
+    <p class="section-intro" style="max-width:700px;">Välj vilken rutt du vill se, eller visa båda. Klicka på markörerna för info om varje stopp.</p>
+
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;">
+      <button id="btn-rutt1" onclick="showRoute(1)" style="display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;border-radius:10px;border:2px solid #2D5016;background:#2D5016;color:white;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;">
+        🗺 Rutt 1 – Hamburg &amp; Schwarzwald
+      </button>
+      <button id="btn-rutt2" onclick="showRoute(2)" style="display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;border-radius:10px;border:2px solid #3A7CA5;background:transparent;color:rgba(245,240,232,.7);font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;">
+        🗺 Rutt 2 – Amsterdam &amp; Brygge
+      </button>
+      <button id="btn-bada" onclick="showRoute(0)" style="display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;border-radius:10px;border:2px solid rgba(245,240,232,.3);background:transparent;color:rgba(245,240,232,.6);font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;cursor:pointer;transition:all .2s;">
+        👁 Visa båda
+      </button>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:1.25rem;margin-bottom:2rem;font-size:.78rem;font-weight:500;">
+      <div style="display:flex;align-items:center;gap:.5rem;color:rgba(245,240,232,.7);">
+        <div style="width:28px;height:3px;background:#2D5016;border-radius:2px;"></div>Rutt 1 utresa
+      </div>
+      <div style="display:flex;align-items:center;gap:.5rem;color:rgba(245,240,232,.7);">
+        <div style="width:28px;height:0;border-top:2.5px dashed #C4614A;"></div>Rutt 1 hemresa
+      </div>
+      <div style="display:flex;align-items:center;gap:.5rem;color:rgba(245,240,232,.7);">
+        <div style="width:28px;height:3px;background:#3A7CA5;border-radius:2px;"></div>Rutt 2 utresa
+      </div>
+      <div style="display:flex;align-items:center;gap:.5rem;color:rgba(245,240,232,.7);">
+        <div style="width:28px;height:0;border-top:2.5px dashed #8B5E3C;"></div>Rutt 2 hemresa
+      </div>
+    </div>
   </div>
   <div style="padding:0 2rem 4rem;max-width:1100px;margin:0 auto;"><div id="map"></div></div>
 </div>
@@ -671,11 +699,245 @@ footer strong{color:rgba(245,240,232,.8);font-weight:500;}
       </div>
     </div>
 
+    <div class="accom-card" style="border:2px solid #3A7CA5;background:rgba(58,124,165,.02);">
+      <div class="accom-hdr">
+        <div><div class="accom-stop" style="color:#3A7CA5;">Natt 1 · Köpenhamn · ⭐ Rutt 1 alternativ & Rutt 2</div><div class="accom-name">Admiral Hotel Copenhagen</div></div>
+        <div class="accom-rating"><span class="r-num">9.2 / 10</span><span class="stars">★★★★★</span><span class="dog-badge">🐾 250 DKK/natt</span></div>
+      </div>
+      <div class="accom-desc">Ikoniskt 5-stjärnigt vattenfront-hotell i ett listat lagerhus från 1780-talet, precis intill Amalienborg och 5 min till Nyhavn. Husdjur av alla storlekar och raser välkomnas mot 250 DKK/natt. En Booking.com-recensent skriver att det var "perfekt också med hundar". Duplex Loft-rum med vattenvy passar familjer om fyra. Restaurang och bar med hamnvy på plats. Perfekt basläge om ni väljer att stanna en natt i Köpenhamn istället för Malmö.</div>
+      <div>
+        <a href="https://www.booking.com/hotel/dk/copenhagen-admiral.html" target="_blank" class="btn btn-primary">📅 Klicka här – boka på Booking.com</a>
+        <a href="https://www.tripadvisor.com/Hotel_Review-g189541-d229647-Reviews-Admiral_Hotel_Copenhagen.html" target="_blank" class="btn btn-secondary">⭐ Klicka här – läs recensioner</a>
+      </div>
+    </div>
+
+    <div class="accom-card">
+      <div class="accom-hdr">
+        <div><div class="accom-stop">Natt 1 · Köpenhamn · Alternativ</div><div class="accom-name">25hours Hotel Indre By</div></div>
+        <div class="accom-rating"><span class="r-num">8.8 / 10</span><span class="stars">★★★★</span><span class="dog-badge">🐾 300 DKK/vistelse</span></div>
+      </div>
+      <div class="accom-desc">Ett av Köpenhamns mest hundvänliga hotell – hundar är tillåtna i restaurangen och baren! Ni får hundmat, skålar och en mysig säng till hunden vid incheckning. Färgglad och lekfull inredning, centralt läge och lägre hundavgift (300 DKK per hela vistelsen, inte per natt).</div>
+      <div>
+        <a href="https://www.booking.com/hotel/dk/25hours-kopenhagen.html" target="_blank" class="btn btn-primary">📅 Klicka här – boka på Booking.com</a>
+      </div>
+    </div>
+
+    <div class="accom-card">
+      <div class="accom-hdr">
+        <div><div class="accom-stop">Natt 1 · Köpenhamn · Bästa läget</div><div class="accom-name">71 Nyhavn Hotel</div></div>
+        <div class="accom-rating"><span class="r-num">8.9 / 10</span><span class="stars">★★★★</span><span class="dog-badge">🐾 Hundvänligt</span></div>
+      </div>
+      <div class="accom-desc">Direkt vid Nyhavn i ombyggda 1800-talslager – bästa läget om ni vill ha Nyhavn-stämningen precis utanför dörren. Hundar välkomnas överallt utom i restaurangen, och hundvakt kan beställas via hotellet. Historisk charm med moderna bekvämligheter.</div>
+      <div>
+        <a href="https://www.booking.com/hotel/dk/71-nyhavn.html" target="_blank" class="btn btn-primary">📅 Klicka här – boka på Booking.com</a>
+      </div>
+    </div>
+
   </div>
 </section>
 <div class="divider"></div>
 
-<!-- ELBIL -->
+<!-- ══════════ RUTT 2 ══════════ -->
+<section id="rutt2">
+  <div class="section-label" style="color:#3A7CA5;">Alternativ resväg</div>
+  <h2 class="section-title">Rutt 2 – Amsterdam, Brygge &amp; Alsace</h2>
+  <p class="section-intro">En helt annorlunda väg till Annecy via Benelux och östra Frankrike. Tre länder, kanalstäder och sagolika halvtimrade hus – och hem via Schweiz och Frankfurt.</p>
+
+  <table class="ov-table" style="margin-bottom:3rem;">
+    <thead><tr><th>Dag</th><th>Datum</th><th>Sträcka</th><th>Km</th><th>Övernattning</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Tis 22 juli</td><td>Tyresö → Köpenhamn</td><td>~590 km</td><td>Köpenhamn</td></tr>
+      <tr><td>2</td><td>Ons 23 juli</td><td>Köpenhamn → Amsterdam</td><td>~700 km</td><td>Amsterdam</td></tr>
+      <tr><td>3</td><td>Tor 24 juli</td><td>Amsterdam → Brygge</td><td>~250 km</td><td>Brygge, Belgien</td></tr>
+      <tr><td>4–5</td><td>25–26 juli</td><td>Brygge → Alsace (Colmar)</td><td>~600 km</td><td>Colmar (2 nätter)</td></tr>
+      <tr><td>6</td><td>27 juli</td><td>Alsace → Annecy</td><td>~250 km</td><td>Annecy</td></tr>
+      <tr><td class="dest-star">7–10</td><td class="dest-star">28–31 juli</td><td class="dest-star">✦ Annecy – bas</td><td class="dest-star">—</td><td class="dest-star">Annecy (4–5 nätter)</td></tr>
+      <tr><td>11</td><td>1 aug</td><td>Annecy → Bern, Schweiz</td><td>~200 km</td><td>Bern</td></tr>
+      <tr><td>12</td><td>2 aug</td><td>Bern → Frankfurt</td><td>~500 km</td><td>Frankfurt</td></tr>
+      <tr><td>13–14</td><td>3–4 aug</td><td>Frankfurt → Tyresö</td><td>~1 050 km</td><td>Ev. Malmö eller direkt hem</td></tr>
+    </tbody>
+  </table>
+
+  <div class="stops-grid">
+
+    <!-- AMSTERDAM -->
+    <div class="stop-card" onclick="flyTo(52.370,4.895,12)" style="border-color:#3A7CA5;">
+      <div class="stop-side" style="background:#3A7CA5;"></div>
+      <div class="stop-body">
+        <div class="stop-meta"><span class="stop-day">Dag 2 · Natt 2</span><span class="stop-tag" style="background:rgba(58,124,165,.12);color:#3A7CA5;">Rutt 2 utresa</span></div>
+        <h3 class="stop-title">Amsterdam</h3>
+        <p class="stop-km">~700 km från Köpenhamn · E20/E45 genom Danmark och Tyskland</p>
+        <p class="stop-desc">Världens kanalstad – 165 kanaler, 1 500 broar och en energi som få städer kan matcha. Hundar är välkomna i nästan alla parker och på uteserveringarna. Perfekt för en aktiv familj – hyr cyklar och ta er runt på Amsterdams sätt.</p>
+        <div class="act-list">
+          <div class="act-item hi">
+            <div class="act-name">🚴 Cykeltur längs kanalerna ⭐</div>
+            <div class="act-desc">Amsterdam är världens cykelvänligaste stad – hyr cyklar och utforska kanalerna, Jordaan-kvarteret och Vondelpark. Hunden kan sitta i cykelkorgen (vanligt i Amsterdam!). Det absolut bästa sättet att uppleva staden.</div>
+            <div class="act-meta">💰 Hyrcykel ~15 €/dag · 🐾 Hund i korg · ⏱ Halvdag</div>
+            <div class="btn-wrap">
+              <a href="https://www.iamsterdam.com/en/see-and-do/getting-around/by-bike/bike-rental" target="_blank" class="btn btn-primary">🚴 Klicka här – cykelhyra Amsterdam</a>
+            </div>
+          </div>
+          <div class="act-item">
+            <div class="act-name">🌳 Vondelpark – hundvänlig stadspark</div>
+            <div class="act-desc">Amsterdams stora stadspark med inhängad hundlöpyta, öppna gräsytor och caféer. Perfekt morgonrunda. Centralt läge nära museumkvarteret.</div>
+            <div class="act-meta">🆓 Gratis · 🐾 Hundlöpyta · Alltid öppet</div>
+            <div class="btn-wrap">
+              <a href="https://www.iamsterdam.com/en/see-and-do/things-to-do/parks-and-nature/vondelpark" target="_blank" class="btn btn-primary">📍 Klicka här – Vondelpark info</a>
+            </div>
+          </div>
+          <div class="act-item">
+            <div class="act-name">🚤 Kanalbåt – hundvänlig sightseeing</div>
+            <div class="act-desc">Många kanalboater i Amsterdam välkomnar hundar. Hop-on-hop-off-turer låter er stiga av vid sevärdheter. Lugnt och panoramiskt – passa på att se Anne Franks hus, Rijksmuseum och Westerkerk från vattnet.</div>
+            <div class="act-meta">💰 Från ~25 €/person · 🐾 Kolla hundpolicy vid bokning · ⏱ 1–2 timmar</div>
+            <div class="btn-wrap">
+              <a href="https://www.stromma.com/en-nl/amsterdam/sightseeing/sightseeing-by-boat/" target="_blank" class="btn btn-primary">🚤 Klicka här – boka kanalbåt</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRYGGE -->
+    <div class="stop-card" onclick="flyTo(51.209,3.224,13)" style="border-color:#3A7CA5;">
+      <div class="stop-side" style="background:#3A7CA5;"></div>
+      <div class="stop-body">
+        <div class="stop-meta"><span class="stop-day">Dag 3 · Natt 3</span><span class="stop-tag" style="background:rgba(58,124,165,.12);color:#3A7CA5;">Rutt 2 utresa</span></div>
+        <h3 class="stop-title">Brygge, Belgien</h3>
+        <p class="stop-km">~250 km från Amsterdam · A10/E19 söderut</p>
+        <p class="stop-desc">Europas bäst bevarade medeltida stad – ett levande UNESCO-världsarv med kanaler, kullerstensgator och gotiska torn. Kallad "Nordens Venedig" och rättvist. Kortaste körsträckan av alla stopp på rutten – perfekt för en lugn dag med hunden i koppeln genom en sagolik gammal stad.</p>
+        <div class="act-list">
+          <div class="act-item hi">
+            <div class="act-name">🏰 Gamla stan – UNESCO-promenad ⭐</div>
+            <div class="act-desc">Promenera längs kanalerna i Brygges medeltida centrum – Rozenhoedkaai är den mest fotogeniska vyn. Markt-torget med det ikoniska belfrytornet, Minnewater ("kärlekssjön") och Saint John's Hospital är höjdpunkter. Hunden välkommen på alla utomhusytor. Gå på morgonen eller kvällen – dagtid kan det vara trångt.</div>
+            <div class="act-meta">🆓 Gratis promenad · 🐾 Hund välkommen · ⏱ 2–4 timmar</div>
+            <div class="btn-wrap">
+              <a href="https://www.visitbrugge.be/en" target="_blank" class="btn btn-primary">📍 Klicka här – Visit Brugge officiell guide</a>
+            </div>
+          </div>
+          <div class="act-item">
+            <div class="act-name">🍫 Belgisk choklad & wafflar – familjemåste</div>
+            <div class="act-desc">Brygge har fler chokladbutiker per kvadratmeter än någon annan stad i världen. Prova äkta belgiska wafflar (Liège-stil med pärlsocker) och handgjord pralin. Tonåringarna och föräldrarna är överens om att detta är obligatoriskt.</div>
+            <div class="act-meta">💰 Waffle ~3–5 € · Choklad ~10–20 €/ask · 🐾 Uteservering hundvänlig</div>
+            <div class="btn-wrap">
+              <a href="https://www.visitbrugge.be/en/explore/food-and-drinks/chocolate" target="_blank" class="btn btn-primary">🍫 Klicka här – chokladguide Brygge</a>
+            </div>
+          </div>
+          <div class="act-item">
+            <div class="act-name">🚣 Kanalbåt – 30 min rundtur</div>
+            <div class="act-desc">Korta kanalbåtsturer (30 min) avgår från fem platser i centrum. Hundvänliga båtar finns – kolla vid kajerna. En av de billigaste och roligaste turistupplevelserna i Belgien. Boka inte i förväg – bara kö upp vid kajen.</div>
+            <div class="act-meta">💰 ~11 €/vuxen · 6 €/barn · ⏱ 30 min · 🐾 Hundvänliga båtar finns</div>
+            <div class="btn-wrap">
+              <a href="https://www.visitbrugge.be/en/explore/activities-and-leisure/boat-trips" target="_blank" class="btn btn-primary">🚣 Klicka här – kanalbåtar Brygge</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALSACE / COLMAR -->
+    <div class="stop-card" onclick="flyTo(48.079,7.358,12)" style="border-color:#3A7CA5;">
+      <div class="stop-side" style="background:#3A7CA5;"></div>
+      <div class="stop-body">
+        <div class="stop-meta"><span class="stop-day">Dag 4–5 · Natt 4–5</span><span class="stop-tag" style="background:rgba(58,124,165,.12);color:#3A7CA5;">Rutt 2 utresa</span></div>
+        <h3 class="stop-title">Alsace – Colmar &amp; Route des Vins</h3>
+        <p class="stop-km">~600 km från Brygge · E40/A5/A35 österut</p>
+        <p class="stop-desc">Alsace är Frankrikes mest sagolika region – halvtimrade hus i pastellfärger, vinrankor upp mot Vogeserna och medeltida byar som verkar hämtade ur en sagobok. Colmar kallas "lilla Venedig" tack vare sina blomsterprydda kanalkvarter. Maten är en unik blandning av franskt och tyskt arv – tarte flambée och choucroute garnie är lokala klassiker.</p>
+        <div class="act-list">
+          <div class="act-item hi">
+            <div class="act-name">🏘 La Petite Venise – Colmars kanalkvarter ⭐</div>
+            <div class="act-desc">Det blomsterdekorerade kanalkvarteret i hjärtat av Colmar med halvtimrade hus i rosa, gult och blått. Promenera längs kanalerna, kolla in Saint-Martin-katedralen och torget Place de l'Ancienne Douane. Hunden välkommen överallt utomhus. Gå tidig morgon för bäst atmosfär.</div>
+            <div class="act-meta">🆓 Gratis promenad · 🐾 Hund välkommen · ⏱ 2–3 timmar</div>
+            <div class="btn-wrap">
+              <a href="https://www.tourisme-colmar.com/en/" target="_blank" class="btn btn-primary">📍 Klicka här – Colmar turistbyrå</a>
+            </div>
+          </div>
+          <div class="act-item">
+            <div class="act-name">🍷 Route des Vins – alsacisk vinväg</div>
+            <div class="act-desc">Kör längs Route des Vins d'Alsace – 170 km landsvägssträcka genom vingårdar och pittoreska byar. Stannar ni i Riquewihr, Ribeauvillé eller Eguisheim hinner ni se tre av Frankrikes vackraste byar på en halvdag. Hundvänliga byar med öppna torg och gränder.</div>
+            <div class="act-meta">🆓 Gratis att köra · 🐾 Hundvänliga byar · ⏱ Halvdag–heldag</div>
+            <div class="btn-wrap">
+              <a href="https://www.alsace.com/en/alsace-wine-route/" target="_blank" class="btn btn-primary">🍷 Klicka här – Route des Vins officiell guide</a>
+            </div>
+          </div>
+          <div class="act-item">
+            <div class="act-name">🏰 Haut-Koenigsbourg – medeltida bergsfästning</div>
+            <div class="act-desc">En av Frankrikes mest välbevarade medeltida slott (1100-tal) thronnar 755 m högt i Vogeserna med fantastisk utsikt över Alsaceslätten och Schwarzwald. 20 min från Colmar. Hund välkommen på uteområdena.</div>
+            <div class="act-meta">💰 ~15 €/vuxen · 🐾 Hund utomhus · ⏱ 2–3 timmar</div>
+            <div class="btn-wrap">
+              <a href="https://www.haut-koenigsbourg.fr/en/" target="_blank" class="btn btn-primary">🏰 Klicka här – Haut-Koenigsbourg info & biljetter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANNECY RUTT 2 -->
+    <div class="stop-card" style="border-color:var(--gold);" onclick="flyTo(45.900,6.124,12)">
+      <div class="stop-side dest"></div>
+      <div class="stop-body">
+        <div class="stop-meta"><span class="stop-day">Dag 6–10 · Natt 6–10</span><span class="stop-tag dest">✦ Destination</span></div>
+        <h3 class="stop-title">Annecy, Frankrike</h3>
+        <p class="stop-km">~250 km från Alsace · A35/A36 söderut mot Genève</p>
+        <p class="stop-desc">Samma fantastiska destination – alla aktiviteter och boenden är identiska med Rutt 1. Se Annecy-sektionen ovan för fullständig info.</p>
+        <div class="btn-wrap" style="margin-top:.5rem;">
+          <a href="#annecy" class="btn btn-gold">✦ Klicka här – gå till Annecy-sektionen ↓</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BERN -->
+    <div class="stop-card" onclick="flyTo(46.948,7.448,12)" style="border-color:#8B5E3C;">
+      <div class="stop-side" style="background:#8B5E3C;"></div>
+      <div class="stop-body">
+        <div class="stop-meta"><span class="stop-day">Dag 11 · Natt 11</span><span class="stop-tag" style="background:rgba(139,94,60,.12);color:#8B5E3C;">Rutt 2 hemresa</span></div>
+        <h3 class="stop-title">Bern, Schweiz</h3>
+        <p class="stop-km">~200 km från Annecy · A40/A1 via Genève</p>
+        <p class="stop-desc">Schweiz förbisedda pärla – en liten, vacker medeltida stad vid foten av Alperna med Berner Oberland-utsikt. UNESCO-världsarv med 6 km medeltida arkader att promenera under. Berömda björnparken Bern är gratis och hundvänlig.</p>
+        <div class="act-list">
+          <div class="act-item hi">
+            <div class="act-name">🏛 Gamla stan & medeltida arkader ⭐</div>
+            <div class="act-desc">6 km övertäckta arkader (Lauben) gör Bern till Europas längsta tak-täckta shoppinggata. Zytglogge (klocktornet från 1191) är stadens ikon. Rosenterrassen ovanför gamla stan ger magisk panoramautsikt mot Alperna med Eiger, Mönch och Jungfrau i bakgrunden. Hundvänlig stad.</div>
+            <div class="act-meta">🆓 Gratis promenad · 🐾 Hund välkommen · ⏱ 2–3 timmar</div>
+            <div class="btn-wrap">
+              <a href="https://www.bern.com/en/" target="_blank" class="btn btn-primary">📍 Klicka här – Bern officiell turistguide</a>
+            </div>
+          </div>
+          <div class="act-item">
+            <div class="act-name">🐻 Bern Björnpark – gratis & hundvänlig</div>
+            <div class="act-desc">Björnen är Berns symbol och stadsvapnet. Björnparken vid Nydeggbron har ett naturligt biotopområde längs Aare-floden där björnarna lever. Gratis att besöka, 5 min promenad från gamla stan. Hund välkommen med koppel.</div>
+            <div class="act-meta">🆓 Gratis · 🐾 Hund med koppel · ⏰ Alltid öppet</div>
+            <div class="btn-wrap">
+              <a href="https://www.bern.com/en/detail/bern-bear-park" target="_blank" class="btn btn-primary">🐻 Klicka här – Björnparken info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRANKFURT -->
+    <div class="stop-card" onclick="flyTo(50.110,8.682,11)" style="border-color:#8B5E3C;">
+      <div class="stop-side" style="background:#8B5E3C;"></div>
+      <div class="stop-body">
+        <div class="stop-meta"><span class="stop-day">Dag 12 · Natt 12</span><span class="stop-tag" style="background:rgba(139,94,60,.12);color:#8B5E3C;">Rutt 2 hemresa</span></div>
+        <h3 class="stop-title">Frankfurt</h3>
+        <p class="stop-km">~500 km från Bern · A5 norrut</p>
+        <p class="stop-desc">Praktisk mellanstopp med utmärkt laddinfrastruktur. Sachsenhausen-kvarteret längs Main-floden är ett charmigt gammalt kvarter med äppelvinskrogar (Äppelwoi) och hundvänliga uteserveringar. Flodpromenaden är bred och fin med hunden på kvällen.</p>
+        <div class="act-list">
+          <div class="act-item">
+            <div class="act-name">🍶 Sachsenhausen – äppelvinkvarter & flodpromenad</div>
+            <div class="act-desc">Det gamla kvarteret söder om Main med kullerstensgatorna och de traditionella Äppelwoi-krogar (äppelvin är Frankfurts dryck). Flodpromenaden Mainufer längs båda sidor om floden är hundvänlig och vacker på kvällen med stadens skyline.</div>
+            <div class="act-meta">💰 Äppelvin ~3 €/glas · 🐾 Uteservering hundvänlig · ⏱ Kvällen</div>
+            <div class="btn-wrap">
+              <a href="https://www.frankfurt-tourismus.de/en/" target="_blank" class="btn btn-primary">📍 Klicka här – Frankfurt turistbyrå</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div class="divider"></div>
 <section id="elbil">
   <div class="section-label">Elbilstips</div>
   <h2 class="section-title">Smarta laddningsstopp</h2>
@@ -699,31 +961,78 @@ footer strong{color:rgba(245,240,232,.8);font-weight:500;}
 </footer>
 
 <script>
+// All map layers stored globally so showRoute() can toggle them
+let map, r1out, r1ret, r2out, r2ret, r1markers=[], r2markers=[], sharedMarkers=[];
+
 function initMap(){
-  const map=L.map('map',{center:[52,8],zoom:5,scrollWheelZoom:false});
+  map=L.map('map',{center:[51,8],zoom:5,scrollWheelZoom:false});
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
-  L.polyline([[59.222,18.241],[55.607,12.994],[53.575,10.015],[47.895,8.139],[45.900,6.124]],{color:'#2D5016',weight:3,opacity:.8}).addTo(map);
-  L.polyline([[45.900,6.124],[45.759,4.831],[50.937,6.958],[55.607,12.994],[59.222,18.241]],{color:'#C4614A',weight:2.5,opacity:.7,dashArray:'8 5'}).addTo(map);
 
-  function mk(c,t){return L.divIcon({html:`<div style="background:${c};color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,.25);">${t}</div>`,className:'',iconSize:[32,32],iconAnchor:[16,16]});}
-  function goldMk(){return L.divIcon({html:`<div style="background:#C9A84C;color:#1A1A14;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:16px;border:3px solid white;box-shadow:0 3px 12px rgba(0,0,0,.3);">✦</div>`,className:'',iconSize:[40,40],iconAnchor:[20,20]});}
-  function homeMk(){return L.divIcon({html:`<div style="background:#2D5016;color:white;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,.25);">🏠</div>`,className:'',iconSize:[36,36],iconAnchor:[18,18]});}
+  // ── ROUTE 1 ──
+  r1out=L.polyline([[59.222,18.241],[55.607,12.994],[53.575,10.015],[47.895,8.139],[45.900,6.124]],{color:'#2D5016',weight:3.5,opacity:.85}).addTo(map);
+  r1ret=L.polyline([[45.900,6.124],[45.759,4.831],[50.937,6.958],[55.607,12.994],[59.222,18.241]],{color:'#C4614A',weight:3,opacity:.8,dashArray:'8 5'}).addTo(map);
 
-  [
-    {ll:[59.222,18.241],ic:homeMk(),t:'Tyresö',s:'Start & mål',d:'Hem – avresa tisdag 22 juli!'},
-    {ll:[55.607,12.994],ic:mk('#2D5016','1'),t:'Malmö / Köpenhamn',s:'Natt 1 · ~590 km',d:'Nyhavn, kanalbåt med hund, Faelledparken. Clarion Hotel Malmö Live.'},
-    {ll:[53.575,10.015],ic:mk('#3A7CA5','2'),t:'Hamburg',s:'Natt 2 · ~310 km',d:'Stadtpark disc-golf, Speicherstadt UNESCO, Elbphilharmonie Plaza gratis. Hotel du Nord Alster ⭐ 4.6'},
-    {ll:[47.895,8.139],ic:mk('#6B8F5E','3–4'),t:'Schwarzwald / Titisee',s:'Natt 3–4 · ~580 km',d:'Sommarrodelbana Feldberg, Titisee simning, Triberg vattenfall, Steinwasenpark. NATURE TITISEE Hotel ⭐ 4.5'},
-    {ll:[45.900,6.124],ic:goldMk(),t:'✦ Annecy',s:'Bas 4–5 nätter · ~250 km',d:'Paragliding, via ferrata, kajak, cykelrunda, gamla stan, Gorges du Fier. Privilodges Le Royal ⭐ 4.5'},
-    {ll:[45.759,4.831],ic:mk('#C4614A','A'),t:'Lyon',s:'Natt 10 (hemresa)',d:'Traboules, Vieux Lyon, Parc Tête d\'Or, bouchon-mat. Hôtel des Célestins ⭐ 4.3'},
-    {ll:[50.937,6.958],ic:mk('#C4614A','B'),t:'Köln',s:'Natt 11 (hemresa)',d:'Kölner Dom, Rhenpromenad, Kölsch. Hotel Domspitzen ⭐ 4.5. Sista stopp!'}
-  ].forEach(s=>{
-    L.marker(s.ll,{icon:s.ic}).addTo(map).bindPopup(`<div class="pop"><h3>${s.t}</h3><div class="pop-sub">${s.s}</div><p>${s.d}</p></div>`,{maxWidth:260});
-  });
+  // ── ROUTE 2 ──
+  r2out=L.polyline([[59.222,18.241],[55.607,12.994],[52.370,4.895],[51.209,3.224],[48.079,7.358],[45.900,6.124]],{color:'#3A7CA5',weight:3.5,opacity:.85}).addTo(map);
+  r2ret=L.polyline([[45.900,6.124],[46.948,7.448],[50.110,8.682],[55.607,12.994],[59.222,18.241]],{color:'#8B5E3C',weight:3,opacity:.8,dashArray:'8 5'}).addTo(map);
 
-  const leg=L.control({position:'bottomleft'});
-  leg.onAdd=function(){const d=L.DomUtil.create('div');d.style.cssText='background:white;padding:10px 14px;border-radius:10px;font-family:DM Sans,sans-serif;font-size:11px;border:1px solid rgba(0,0,0,.12);box-shadow:0 2px 8px rgba(0,0,0,.1);';d.innerHTML='<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><div style="width:24px;height:3px;background:#2D5016;"></div><span>Utresa</span></div><div style="display:flex;align-items:center;gap:6px;"><div style="width:24px;border-top:2px dashed #C4614A;"></div><span>Hemresa</span></div>';return d;};
-  leg.addTo(map);
+  // ── ICON HELPERS ──
+  function mk(c,t,sz){sz=sz||32;return L.divIcon({html:`<div style="background:${c};color:white;border-radius:50%;width:${sz}px;height:${sz}px;display:flex;align-items:center;justify-content:center;font-size:${sz>32?16:11}px;font-weight:600;border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,.28);">${t}</div>`,className:'',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2]});}
+  const goldMk=()=>mk('#C9A84C','✦',40);
+  const homeMk=()=>L.divIcon({html:`<div style="background:#2D5016;color:white;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:15px;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,.28);">🏠</div>`,className:'',iconSize:[36,36],iconAnchor:[18,18]});
+
+  function addPop(latlng,icon,t,s,d){return L.marker(latlng,{icon}).addTo(map).bindPopup(`<div class="pop"><h3>${t}</h3><div class="pop-sub">${s}</div><p>${d}</p></div>`,{maxWidth:270});}
+
+  // ── SHARED MARKERS (both routes) ──
+  sharedMarkers=[
+    addPop([59.222,18.241],homeMk(),'Tyresö','Start & mål','Hem – avresa tisdag 22 juli!'),
+    addPop([55.607,12.994],mk('#2D5016','KBH/MÖ'),'Malmö / Köpenhamn','Natt 1 · Båda rutterna','Admiral Hotel, 25hours Hotel eller 71 Nyhavn. Nyhavn, kanalbåt med hund, Faelledparken.'),
+    addPop([45.900,6.124],goldMk(),'✦ Annecy','Bas 4–5 nätter · Båda rutterna','Paragliding, via ferrata, kajak, cykelrunda, Gorges du Fier. Privilodges Le Royal ⭐ 4.5'),
+  ];
+
+  // ── ROUTE 1 MARKERS ──
+  r1markers=[
+    addPop([53.575,10.015],mk('#2D5016','2'),'Hamburg','Rutt 1 · Natt 2 · ~310 km från Malmö','Stadtpark disc-golf, Speicherstadt UNESCO, Elbphilharmonie Plaza. Hotel du Nord Alster ⭐ 4.6'),
+    addPop([47.895,8.139],mk('#6B8F5E','3–4'),'Schwarzwald / Titisee','Rutt 1 · Natt 3–4 · ~580 km från Hamburg','Sommarrodelbana Feldberg, Titisee simning, Triberg vattenfall, Steinwasenpark. NATURE TITISEE Hotel ⭐ 4.5'),
+    addPop([45.759,4.831],mk('#C4614A','A'),'Lyon','Rutt 1 hemresa · Natt 10','Traboules, Vieux Lyon, Parc Tête d\'Or, bouchon-mat. Hôtel des Célestins ⭐ 4.3'),
+    addPop([50.937,6.958],mk('#C4614A','B'),'Köln','Rutt 1 hemresa · Natt 11','Kölner Dom, Rhenpromenad, Kölsch. Hotel Domspitzen ⭐ 4.5'),
+  ];
+
+  // ── ROUTE 2 MARKERS ──
+  r2markers=[
+    addPop([52.370,4.895],mk('#3A7CA5','2'),'Amsterdam','Rutt 2 · Natt 2 · ~700 km från Köpenhamn','Cykeltur längs kanalerna, Vondelpark med hund, kanalbåt. Hundvänlig storstad!'),
+    addPop([51.209,3.224],mk('#3A7CA5','3'),'Brygge, Belgien','Rutt 2 · Natt 3 · ~250 km från Amsterdam','UNESCO gamla stan, belgisk choklad & wafflar, kanalbåt. Sagolikt stadskvarter.'),
+    addPop([48.079,7.358],mk('#3A7CA5','4–5'),'Alsace – Colmar','Rutt 2 · Natt 4–5 · ~600 km från Brygge','La Petite Venise, Route des Vins, Haut-Koenigsbourg slott. Halvtimrade hus och unik mat.'),
+    addPop([46.948,7.448],mk('#8B5E3C','C'),'Bern, Schweiz','Rutt 2 hemresa · Natt 11','UNESCO gamla stan, medeltida arkader, björnparken (gratis), Alp-panorama.'),
+    addPop([50.110,8.682],mk('#8B5E3C','D'),'Frankfurt','Rutt 2 hemresa · Natt 12','Sachsenhausen äppelvinkvarter, Mainpromenaden, bra laddinfrastruktur.'),
+  ];
+
+  // ── ROUTE SWITCHER ──
+  window.showRoute=function(n){
+    // toggle layers
+    [r1out,r1ret].forEach(l=>n===2?map.removeLayer(l):map.addLayer(l));
+    [r2out,r2ret].forEach(l=>n===1?map.removeLayer(l):map.addLayer(l));
+    r1markers.forEach(m=>n===2?map.removeLayer(m):map.addLayer(m));
+    r2markers.forEach(m=>n===1?map.removeLayer(m):map.addLayer(m));
+
+    // update button styles
+    const b1=document.getElementById('btn-rutt1');
+    const b2=document.getElementById('btn-rutt2');
+    const bb=document.getElementById('btn-bada');
+    b1.style.background=n===1?'#2D5016':'transparent';
+    b1.style.color=n===1?'white':'rgba(245,240,232,.7)';
+    b2.style.background=n===2?'#3A7CA5':'transparent';
+    b2.style.color=n===2?'white':'rgba(245,240,232,.7)';
+    bb.style.background=n===0?'rgba(245,240,232,.15)':'transparent';
+
+    // fit map to visible route
+    if(n===1) map.fitBounds([[45,4],[60,19]],{padding:[30,30]});
+    else if(n===2) map.fitBounds([[45,3],[60,19]],{padding:[30,30]});
+    else map.fitBounds([[45,3],[60,19]],{padding:[30,30]});
+  };
+
+  // Start with both routes visible
+  showRoute(0);
 
   window.flyTo=function(lat,lng,z){map.flyTo([lat,lng],z||10,{duration:1.2});document.getElementById('karta').scrollIntoView({behavior:'smooth',block:'start'});};
 }
